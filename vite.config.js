@@ -1,3 +1,4 @@
+import sassDts from 'vite-plugin-sass-dts'
 import { fileURLToPath, URL } from 'node:url'
 
 import { defineConfig } from 'vite'
@@ -9,7 +10,17 @@ export default defineConfig({
   plugins: [
     vue(),
     vueJsx(),
+    
   ],
+  css: {
+    preprocessorOptions: {
+      less: {
+        math: "always",
+        relativeUrls: true,
+        javascriptEnabled: true
+      },
+    },
+  },
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
